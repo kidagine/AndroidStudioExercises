@@ -46,21 +46,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeHashMapValues(){
-        EuroHashMap.put(CurrencyType.EUR, 1.00);
+        EuroHashMap.put(CurrencyType.EUR, 1.0);
         EuroHashMap.put(CurrencyType.USD, 1.10);
         EuroHashMap.put(CurrencyType.PND, 0.84);
         EuroHashMap.put(CurrencyType.DKR, 7.47);
         EuroHashMap.put(CurrencyType.YEN, 120.16);
 
         DollarHashMap.put(CurrencyType.EUR, 0.90);
-        DollarHashMap.put(CurrencyType.USD, 1.00);
+        DollarHashMap.put(CurrencyType.USD, 1.0);
         DollarHashMap.put(CurrencyType.PND, 0.77);
         DollarHashMap.put(CurrencyType.DKR, 6.76);
         DollarHashMap.put(CurrencyType.YEN, 108.66);
 
         PoundHashMap.put(CurrencyType.EUR, 1.18);
         PoundHashMap.put(CurrencyType.USD, 1.30);
-        PoundHashMap.put(CurrencyType.PND, 1.00);
+        PoundHashMap.put(CurrencyType.PND, 1.0);
         PoundHashMap.put(CurrencyType.DKR, 8.78);
         PoundHashMap.put(CurrencyType.YEN, 141.23);
 
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         YenHashMap.put(CurrencyType.USD, 0.0092);
         YenHashMap.put(CurrencyType.PND, 0.0071);
         YenHashMap.put(CurrencyType.DKR, 0.062);
-        YenHashMap.put(CurrencyType.YEN, 1.00);
+        YenHashMap.put(CurrencyType.YEN, 1.0);
     }
 
     private void setReverseButton() {
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setCurrencyEditText() {
-        editTestUserInput.setText("0");
+
         editTestUserInput.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
                 setFromCurrency(CurrencyType.valueOf(spinnerFromCurrency.getSelectedItem().toString()));
@@ -131,23 +131,25 @@ public class MainActivity extends AppCompatActivity {
 
     private void setFromCurrency(CurrencyType currencyType){
         if (!editTestUserInput.getText().toString().isEmpty()) {
-            CurrencyType toCurrencyType = CurrencyType.valueOf(spinnerToCurrency.getSelectedItem().toString());
-            switch (currencyType) {
-                case EUR:
-                    setToCurrency(EuroHashMap, toCurrencyType);
-                    break;
-                case USD:
-                    setToCurrency(DollarHashMap, toCurrencyType);
-                    break;
-                case PND:
-                    setToCurrency(PoundHashMap, toCurrencyType);
-                    break;
-                case DKR:
-                    setToCurrency(KroneHashMap, toCurrencyType);
-                    break;
-                case YEN:
-                    setToCurrency(YenHashMap, toCurrencyType);
-                    break;
+            if (editTestUserInput.getText().length() <= 9){
+                CurrencyType toCurrencyType = CurrencyType.valueOf(spinnerToCurrency.getSelectedItem().toString());
+                switch (currencyType) {
+                    case EUR:
+                        setToCurrency(EuroHashMap, toCurrencyType);
+                        break;
+                    case USD:
+                        setToCurrency(DollarHashMap, toCurrencyType);
+                        break;
+                    case PND:
+                        setToCurrency(PoundHashMap, toCurrencyType);
+                        break;
+                    case DKR:
+                        setToCurrency(KroneHashMap, toCurrencyType);
+                        break;
+                    case YEN:
+                        setToCurrency(YenHashMap, toCurrencyType);
+                        break;
+                }
             }
         }
     }

@@ -8,65 +8,86 @@
 
     <Spinner
         android:id="@+id/spnFromCurrency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_dropdown"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:background="@android:color/background_light"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.041" />
 
     <Spinner
         android:id="@+id/spnToCurrency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_dropdown"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:background="@android:color/background_light"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintHorizontal_bias="0.951"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.041" />
 
     <EditText
         android:id="@+id/edtUserCurrency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
+        android:textSize="16sp"
+        android:typeface="normal"
+        android:ellipsize="start"
+        android:gravity="center_horizontal"
+        android:hint="@string/result_hint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.539" />
+        app:layout_constraintVertical_bias="0.544" />
 
     <Button
         android:id="@+id/btnReverseCurrency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
-
-    <TextView
-        android:id="@+id/txvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="95dp"
+        android:layout_height="71dp"
+        android:text="@string/reverse"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428" />
+        app:layout_constraintVertical_bias="0.007" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="115dp"
+        android:layout_weight="0.85"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.250">
+
+        <TextView
+            android:id="@+id/txvResult"
+            android:layout_width="match_parent"
+            android:layout_height="140sp"
+            android:layout_gravity="bottom"
+            android:autoSizeMaxTextSize="80dp"
+            android:autoSizeMinTextSize="32sp"
+            android:autoSizeStepGranularity="8sp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="sans-serif-thin"
+            android:gravity="center|bottom"
+            android:text="@string/result"
+            android:textColor="#000"
+            android:textSize="100sp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
