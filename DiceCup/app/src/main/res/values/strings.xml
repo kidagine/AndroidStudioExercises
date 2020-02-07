@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DiceCup</string>
+    <string name="dice_cup">Dice Cup</string>
+    <string name="roll">Roll</string>
+    <string name="history">History</string>
+    <string name="clear">Clear</string>
+</resources>
