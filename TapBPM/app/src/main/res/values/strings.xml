@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TapBPM</string>
+    <string name="bpm">BPM</string>
+    <string name="beats_per_minute">Beats Per Minute</string>
+</resources>
