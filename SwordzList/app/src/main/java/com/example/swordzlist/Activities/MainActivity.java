@@ -24,19 +24,20 @@ public class MainActivity extends ListActivity {
     ArrayList<Sword> swordItems = new ArrayList<>();
     SwordAdapter swordAdapter;
 
+    private static final int DETAILS_ACTIVITY_REQUEST_CODE = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setupSwordList();
-        setSwordInformation();
     }
 
     @Override
     public void onListItemClick(ListView parent, View v, int position, long id){
         Intent detailsIntent = new Intent(this, DetailsActivity.class);
         detailsIntent.putExtra("sword", swordItems.get(position));
-        startActivity(detailsIntent);
+        startActivityForResult(detailsIntent, DETAILS_ACTIVITY_REQUEST_CODE);
     }
 
     private void setupSwordList(){
@@ -45,8 +46,18 @@ public class MainActivity extends ListActivity {
         this.setListAdapter(swordAdapter);
     }
 
-    private void setSwordInformation(){
-        Sword swordItem = (Sword) getIntent().getSerializableExtra("sword");
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == DETAILS_ACTIVITY_REQUEST_CODE){
+            if (resultCode == RESULT_OK){
+                setSwordInformation(data);
+            }
+        }
+    }
+
+    private void setSwordInformation(Intent data){
+        Sword swordItem = (Sword) data.getSerializableExtra("sword");
         if (swordItem!= null){
             for(Sword sword : swordItems){
                 if (sword.getId() == swordItem.getId()){

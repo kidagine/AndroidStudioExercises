@@ -1,6 +1,7 @@
 package com.example.swordzlist.Activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,9 @@ public class DetailsActivity extends AppCompatActivity {
 
     EditText dtxName;
     EditText dtxPrice;
+    EditText dtxEmail;
     Button btnSave;
+    Button btnEmail;
     Sword swordItem;
 
     @Override
@@ -25,13 +28,21 @@ public class DetailsActivity extends AppCompatActivity {
 
         dtxName = findViewById(R.id.etName);
         dtxPrice = findViewById(R.id.etPhone);
+        dtxEmail = findViewById(R.id.etEmail);
         btnSave = findViewById(R.id.btnSave);
+        btnEmail = findViewById(R.id.btnEmail);
         setSwordInformation();
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 save();
+            }
+        });
+        btnEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendEmail();
             }
         });
     }
@@ -44,10 +55,18 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void save(){
-        Intent detailsIntent = new Intent(this, MainActivity.class);
         swordItem.setName(dtxName.getText().toString());
         swordItem.setPrice(Double.parseDouble(dtxPrice.getText().toString()));
+        Intent detailsIntent = new Intent();
         detailsIntent.putExtra("sword", swordItem);
-        startActivity(detailsIntent);
+        setResult(RESULT_OK, detailsIntent);
+        finish();
+    }
+
+    private void sendEmail(){
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto",dtxName.getText().toString() + "@gmail.com", null));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, dtxEmail.getText().toString());
+        startActivity(Intent.createChooser(emailIntent, "Send email..."));
     }
 }
