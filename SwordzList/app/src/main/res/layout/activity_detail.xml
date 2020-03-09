@@ -21,6 +21,12 @@
         android:layout_gravity="center"
         style="@style/Base.TextAppearance.AppCompat.Large"/>
 
+    <ImageButton
+        android:id="@+id/ibtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@android:drawable/sym_def_app_icon" />
+
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
@@ -63,8 +69,9 @@
                 android:text="Email" />
 
             <Button
-            android:id="@+id/btnEmail"
-            android:text="Send Email" />
+                android:id="@+id/btnEmail"
+                android:text="Send Email" />
+
         </TableRow>
 
     </TableLayout>
