@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FriendList</string>
+    <string name="friend_name">Name</string>
+    <string name="friend_email">Email</string>
+    <string name="friend_phone_number">Phone Number</string>
+    <string name="friend_name_show">Name:</string>
+    <string name="friend_email_show">Email:</string>
+    <string name="friend_phone_number_show">Phone Number:</string>
+    <string name="save">Save</string>
+    <string name="call">Call</string>
+    <string name="message">Message</string>
+    <string name="email">Email</string>
+</resources>
